@@ -2,18 +2,15 @@ import { Suspense } from "react";
 import "./App.css";
 import Bottles from "./components/Bottles/Bottles";
 
-const bottlesPromise = fetch('./bottles.json').then(res=>res.json())
+const bottlesPromise = fetch("/public/bottles.json").then((res) => res.json());
+
 function App() {
-  // const bottles = [
-  //   {id: 1, name:"Pink Nike Bottle", price: 250, color: "pink"},
-  //   {id: 1, name:"Pink Nike Bottle", price: 250, color: "pink"},
-  //   {id: 1, name:"Pink Nike Bottle", price: 250, color: "pink"},
-  //   {id: 1, name:"Pink Nike Bottle", price: 250, color: "pink"},
-  // ];
+  
   return (
     <>
-      <h1>Buy Awesome Water Bottle</h1>
-      <Suspense fallback={<h3>Bottles are loading....</h3>}>
+      <h2>Buy Awesome Water Bottle</h2>
+      
+      <Suspense fallback={<h3>Battles are loading..</h3>}>
         <Bottles bottlesPromise={bottlesPromise}></Bottles>
       </Suspense>
     </>
